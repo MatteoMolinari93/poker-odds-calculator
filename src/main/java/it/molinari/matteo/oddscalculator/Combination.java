@@ -83,25 +83,28 @@ public class Combination {
     }
 
     public Combination newCombinationWithCard(Card card) {
-        Combination result = this.clone();
-        if(result.card1 == null) {
-            result.card1 = card.toString();
-        } else if(result.card2 == null) {
-            result.card2 = card.toString();
-        } else if(result.card3 == null) {
-            result.card3 = card.toString();
-        } else if(result.card4 == null) {
-            result.card4 = card.toString();
-        } else if(result.card5 == null) {
-            result.card5 = card.toString();
-        } else if(result.card6 == null) {
-            result.card6 = card.toString();
-        } else if(result.card7 == null) {
-            result.card7 = card.toString();
+        return this.clone().addCard(card);
+    }
+
+    public Combination addCard(Card card) {
+        if(this.card1 == null) {
+            this.card1 = card.toString();
+        } else if(this.card2 == null) {
+            this.card2 = card.toString();
+        } else if(this.card3 == null) {
+            this.card3 = card.toString();
+        } else if(this.card4 == null) {
+            this.card4 = card.toString();
+        } else if(this.card5 == null) {
+            this.card5 = card.toString();
+        } else if(this.card6 == null) {
+            this.card6 = card.toString();
+        } else if(this.card7 == null) {
+            this.card7 = card.toString();
         } else {
-           throw new RuntimeException("The combination is already full.");
+            throw new RuntimeException("The combination is already full.");
         }
-        return result;
+        return this;
     }
 
 }
